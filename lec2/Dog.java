@@ -3,6 +3,11 @@ public class Dog {
     // property of Dog class
     public int weightInPounds;
 
+    // Constructor for dogs
+    public Dog (int w) {
+        weightInPounds = w;
+    }
+
     public void makeNoise() {
         if(weightInPounds < 10) {
             System.out.println("yip!");

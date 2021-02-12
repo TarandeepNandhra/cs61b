@@ -7,8 +7,7 @@ public class DogLauncher {
 
     public static void main(String[] args) {
         // create a new dog d
-        Dog d = new Dog();
-        d.weightInPounds = 51;
+        Dog d = new Dog(51);
         d.makeNoise();
     }
 

@@ -1,7 +1,17 @@
 public class Dog {
 
-    public static void makeNoise() {
-        System.out.println("Bark!");
+    // property of Dog class
+    public int weightInPounds;
+
+    public void makeNoise() {
+        if(weightInPounds < 10) {
+            System.out.println("yip!");
+        } else if (weightInPounds < 30) {
+            System.out.println("bark.");
+        } else {
+            System.out.println("wooooooof!");
+        }
+
     }
 
 }

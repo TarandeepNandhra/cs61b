@@ -4,8 +4,4 @@ public class Dog {
         System.out.println("Bark!");
     }
 
-    public static void main(String[] args) {
-        makeNoise();
-    }
-
 }

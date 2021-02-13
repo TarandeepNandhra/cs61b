@@ -16,6 +16,12 @@ public class DogLauncher {
         Dog bigger = d.maxDog(d2);
 
         bigger.makeNoise();
+
+        // System.out.println(d.binomen);
+        // better practice to use the class name instead
+        System.out.println(Dog.binomen);
+
+        //d.makeNoise()
     }
 
 }

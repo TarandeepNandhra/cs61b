@@ -2,6 +2,8 @@ public class Dog {
 
     // property of Dog class, instance variable
     public int weightInPounds;
+    // scientific name for dogs
+    public static String binomen = "Canis familiaris"
 
     // Constructor for dogs, determines how to instantiate the class
     public Dog (int w) {
@@ -22,6 +24,7 @@ public class Dog {
 
     }
     // static method which invokes on the Dog class
+    // can't access variables of an instantiation
     public static Dog maxDog(Dog d1, Dog d2) {
         if (d1.weightInPounds > d2.weightInPounds) {
             return d1;

@@ -40,6 +40,23 @@ public class Planet {
         return G * this. mass * p.mass / (r * r);
 
     }
+    // want to calc the force and + or - dep on x and y coords
+    public double calcForceExertedByX(Planet p) {
+        double xdist = this.xxPos - p.xxPos;
+        double F = this.calcForceExertedBy(p) * xdist / this.calcDistance(p);
+        if (this.xxPos > p.xxPos) {
+            return F;
+        }
+        return -F;
+    }
 
+    public double calcForceExertedByY(Planet p) {
+        double ydist = this.yyPos - p.yyPos;
+        double F = this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
+        if (this.yyPos > p.yyPos) {
+            return F;
+        }
+        return -F;
+    }
 
 }

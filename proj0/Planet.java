@@ -95,4 +95,14 @@ public class Planet {
         return F;
     }
 
+    public void update(double dt, double fX, double fY) {
+        double aX = fX / this.mass;
+        double aY = fY / this.mass;
+        this.xxVel += dt * aX;
+        this.yyVel += dt * aY;
+        this.xxPos += dt * xxVel;
+        this.yyPos += dt * yyVel;      
+
+    }
+
 }

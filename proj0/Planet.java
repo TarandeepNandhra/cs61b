@@ -59,4 +59,35 @@ public class Planet {
         return -F;
     }
 
+    // Planet[] allPlanets = {samh, rocinante, aegir};
+    // samh.calcNetForceExertedByX(allPlanets);
+    // samh.calcNetForceExertedByY(allPlanets);
+
+    // Need to avoid including the planet itself in calculations.
+    public double calcNetForceExertedByX(Planet[] allPlanets) {
+        double F = 0;
+        for (int i = 0; i < allPlanets.length; i = i + 1) {
+            if (!this.equals(allPlanets[i])) {
+
+                F += this.calcForceExertedByX(allPlanets[i]);
+
+            }
+        }
+
+        return F;
+    }
+
+    public double calcNetForceExertedByY(Planet[] allPlanets) {
+        double F = 0;
+        for (int i = 0; i < allPlanets.length; i = i + 1) {
+            if (!this.equals(allPlanets[i])) {
+
+                F += this.calcForceExertedByY(allPlanets[i]);
+
+            }
+        }
+
+        return F;
+    }
+
 }

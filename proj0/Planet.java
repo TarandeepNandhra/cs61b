@@ -66,27 +66,32 @@ public class Planet {
     // Need to avoid including the planet itself in calculations.
     public double calcNetForceExertedByX(Planet[] allPlanets) {
         double F = 0;
-        for (int i = 0; i < allPlanets.length; i = i + 1) {
-            if (!this.equals(allPlanets[i])) {
-
-                F += this.calcForceExertedByX(allPlanets[i]);
-
+        for (Planet p : allPlanets) {
+            if (!this.equals(p)) {
+                F += this.calcForceExertedByX(p);
             }
         }
 
         return F;
     }
+    //     for (int i = 0; i < allPlanets.length; i++) {
+    //         if (!this.equals(allPlanets[i])) {
+    //
+    //             F += this.calcForceExertedByX(allPlanets[i]);
+    //
+    //         }
+    //     }
+    //
+    //     return F;
+    // }
 
     public double calcNetForceExertedByY(Planet[] allPlanets) {
         double F = 0;
-        for (int i = 0; i < allPlanets.length; i = i + 1) {
-            if (!this.equals(allPlanets[i])) {
-
-                F += this.calcForceExertedByY(allPlanets[i]);
-
+        for (Planet p : allPlanets) {
+            if (!this.equals(p)) {
+                F += this.calcForceExertedByY(p);
             }
         }
-
         return F;
     }
 

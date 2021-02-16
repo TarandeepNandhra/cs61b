@@ -15,7 +15,7 @@ public class NBody {
         // don't need the radius
         in.readDouble();
         // Delcare Planet array to be returned
-        Planet[] planets = new Planet[number_of_planets];
+        Planet[] allPlanets = new Planet[number_of_planets];
 
         for (int i = 0; i < number_of_planets; i++) {
 
@@ -25,10 +25,10 @@ public class NBody {
             double yV = in.readDouble();
             double m = in.readDouble();
             String imgs = in.readString();
-            planets[i] = new Planet(xP, yP, xV, yV, m, imgs);
+            allPlanets[i] = new Planet(xP, yP, xV, yV, m, imgs);
         }
 
-        return planets;
+        return allPlanets;
 
     }
 
@@ -38,7 +38,6 @@ public class NBody {
         double dt = Double.parseDouble(args[1]);
 
         String filename = args[2];
-
         double radius = readRadius(filename);
 
         Planet[] allPlanets = readPlanets(filename);
@@ -46,7 +45,6 @@ public class NBody {
         // Sets the co-ord scale for the universe to be the radius, x and y (box).
 
         StdDraw.setScale(-radius, radius);
-
         StdDraw.clear();
 
         // draws background image (x, y, filename) full path if not in folder
@@ -55,17 +53,17 @@ public class NBody {
         for (Planet p : allPlanets) {
             p.draw();
         }
-
+        StdDraw.pause(2000);
         // needed to create smooth animations
         StdDraw.enableDoubleBuffering();
         // time in program
         double t = 0;
         // number of planets
         int n = allPlanets.length;
-        double[] xForces = new double[n];
-        double[] yForces = new double[n];
-        while (t < T) {
 
+        while (t < T) {
+            double[] xForces = new double[n];
+            double[] yForces = new double[n];
             for (int i = 0; i < n; i++) {
                 xForces[i] = allPlanets[i].calcNetForceExertedByX(allPlanets);
                 yForces[i] = allPlanets[i].calcNetForceExertedByY(allPlanets);

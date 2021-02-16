@@ -31,7 +31,6 @@ public class Planet {
         double xdist = this.xxPos - p.xxPos;
         double ydist = this.yyPos - p.yyPos;
         return Math.sqrt(xdist * xdist + ydist * ydist);
-
     }
 
     // will be invoked by a planet: samh.calcForceExertedBy(rocinante)
@@ -42,17 +41,13 @@ public class Planet {
     }
     // want to calc the force and + or - dep on x and y coords
     public double calcForceExertedByX(Planet p) {
-        double xdist = this.xxPos - p.xxPos;
-        double F = this.calcForceExertedBy(p) * xdist / this.calcDistance(p);
-
-        return F;
+        double xdist = p.xxPos - this.xxPos;
+        return this.calcForceExertedBy(p) * xdist / this.calcDistance(p);
     }
 
     public double calcForceExertedByY(Planet p) {
-        double ydist = this.yyPos - p.yyPos;
-        double F = this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
-
-        return F;
+        double ydist = p.yyPos - this.yyPos;
+        return F = this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
     }
 
     // Planet[] allPlanets = {samh, rocinante, aegir};
@@ -94,6 +89,7 @@ public class Planet {
     public void draw() {
 
         StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
+        StdDraw.show();
 
     }
 

@@ -10,26 +10,26 @@ public class Planet {
     private static final double G = 6.67e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String imgs) {
-        xxPos = xP;
-        yyPos = yP;
-        xxVel = xV;
-        yyVel = yV;
-        mass = m;
-        imgFileName = imgs;
+        this.xxPos = xP;
+        this.yyPos = yP;
+        this.xxVel = xV;
+        this.yyVel = yV;
+        this.mass = m;
+        this.imgFileName = imgs;
     }
 
     public Planet(Planet p) {
-        xxPos = p.xxPos;
-        yyPos = p.yyPos;
-        xxVel = p.xxVel;
-        yyVel = p.yyVel;
-        mass = p.mass;
-        imgFileName = p.imgFileName;
+        this.xxPos = p.xxPos;
+        this.yyPos = p.yyPos;
+        this.xxVel = p.xxVel;
+        this.yyVel = p.yyVel;
+        this.mass = p.mass;
+        this.imgFileName = p.imgFileName;
     }
     // will be invoked by a planet: samh.calcDistance(rocinante);
     public double calcDistance(Planet p) {
-        double xdist = this.xxPos - p.xxPos;
-        double ydist = this.yyPos - p.yyPos;
+        double xdist = p.xxPos - this.xxPos;
+        double ydist = p.yyPos - this.yyPos;
         return Math.sqrt(xdist * xdist + ydist * ydist);
     }
 
@@ -89,7 +89,6 @@ public class Planet {
     public void draw() {
 
         StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
-        StdDraw.show();
 
     }
 

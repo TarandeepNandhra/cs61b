@@ -47,7 +47,7 @@ public class Planet {
 
     public double calcForceExertedByY(Planet p) {
         double ydist = p.yyPos - this.yyPos;
-        return F = this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
+        return this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
     }
 
     // Planet[] allPlanets = {samh, rocinante, aegir};

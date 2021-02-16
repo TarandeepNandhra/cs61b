@@ -44,19 +44,15 @@ public class Planet {
     public double calcForceExertedByX(Planet p) {
         double xdist = this.xxPos - p.xxPos;
         double F = this.calcForceExertedBy(p) * xdist / this.calcDistance(p);
-        if (this.xxPos > p.xxPos) {
-            return F;
-        }
-        return -F;
+
+        return F;
     }
 
     public double calcForceExertedByY(Planet p) {
         double ydist = this.yyPos - p.yyPos;
         double F = this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
-        if (this.yyPos > p.yyPos) {
-            return F;
-        }
-        return -F;
+
+        return F;
     }
 
     // Planet[] allPlanets = {samh, rocinante, aegir};
@@ -74,16 +70,6 @@ public class Planet {
 
         return F;
     }
-    //     for (int i = 0; i < allPlanets.length; i++) {
-    //         if (!this.equals(allPlanets[i])) {
-    //
-    //             F += this.calcForceExertedByX(allPlanets[i]);
-    //
-    //         }
-    //     }
-    //
-    //     return F;
-    // }
 
     public double calcNetForceExertedByY(Planet[] allPlanets) {
         double F = 0;
@@ -100,8 +86,14 @@ public class Planet {
         double aY = fY / this.mass;
         this.xxVel += dt * aX;
         this.yyVel += dt * aY;
-        this.xxPos += dt * xxVel;
-        this.yyPos += dt * yyVel;      
+        this.xxPos += dt * this.xxVel;
+        this.yyPos += dt * this.yyVel;
+
+    }
+
+    public void draw() {
+
+        StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
 
     }
 

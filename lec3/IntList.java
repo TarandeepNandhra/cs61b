@@ -19,7 +19,7 @@ public class IntList {
             return 1 + this.rest.size();
         }
     }
-    
+
     /** Return the size of the list using no recusion! */
     public int iterativeSize() {
         int count = 1;
@@ -33,11 +33,20 @@ public class IntList {
 
     // can't do this = this.rest as this is a "final" variable
 
+    /** Return the ith item in the list */
+    public int get(int i) {
+
+        if (i == 0) {
+            return this.first;
+        }
+        return this.rest.get(i - 1);
+    }
+
     public static void main(String[] args) {
         IntList L = new IntList(15, null);
         L = new IntList(10, L);
         L = new IntList(5, L);
-        System.out.println(L.iterativeSize());
+        System.out.println(L.get(1));
     }
 
 }

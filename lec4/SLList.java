@@ -13,60 +13,45 @@ public class SLList {
         }
     }
 
-    // first can only be used in the SLList class
-    // can be used as part of an abstraction barrier, hides implementation.
-    private IntNode first;
+    /* The first item, if it exists, is at sentinel.next */
+    private IntNode sentinel;
     private int size;
 
-    public SLList(int x) {
-        first = new IntNode(x, null);
-        size = 1;
+    public SLList() {
+        sentinel = new IntNode(0, null);
+        size = 0;
 
     }
 
     /** Creates an empty SLList. */
-    public SLList() {
-        first = null;
-        size = 0;
+    public SLList(int x) {
+        sentinel = new IntNode(0, null);
+        sentinel.next = new IntNode(x, null);
+        size = 1;
     }
 
     /** Adds x to the front of the list. */
     public void addFirst(int x) {
-        first = new IntNode(x, first);
+        sentinel.next = new IntNode(x, sentinel.next);
         size++;
     }
 
     /** Returns the first item in the list. */
     public int getFirst() {
-        return first.item;
+        return sentinel.next.item;
     }
 
     /** Adds an item to the end of the list. */
     public void addLast(int x) {
         size++;
-        
-        if (first == null) {
-            first = new IntNode(x, null);
-            return;
-        }
 
-        IntNode p = first;
+        IntNode p = sentinel;
 
         while( p.next != null) {
             p = p.next;
         }
         p.next = new IntNode(x, null);
     }
-
-
-    /** Returns the size of the list that starts at IntNode p. */
-    // helper method for SLList size as SLList is not inheritly recursive.
-    // private static int size(IntNode p) {
-    //     if (p.next == null) {
-    //         return 1;
-    //     }
-    //     return 1 + size(p.next);
-    // }
 
     /** Returns the size of the list that starts at IntNode p. */
     public int size() {

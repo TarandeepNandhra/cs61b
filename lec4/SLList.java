@@ -24,6 +24,12 @@ public class SLList {
 
     }
 
+    /** Creates an empty SLList. */
+    public SLList() {
+        first = null;
+        size = 0;
+    }
+
     /** Adds x to the front of the list. */
     public void addFirst(int x) {
         first = new IntNode(x, first);
@@ -37,8 +43,15 @@ public class SLList {
 
     /** Adds an item to the end of the list. */
     public void addLast(int x) {
-        IntNode p = first;
         size++;
+        
+        if (first == null) {
+            first = new IntNode(x, null);
+            return;
+        }
+
+        IntNode p = first;
+
         while( p.next != null) {
             p = p.next;
         }
@@ -60,14 +73,9 @@ public class SLList {
         return size;
     }
 
-
     public static void main(String[] args) {
         // List of one integer, without specifying null
-        SLList L = new SLList(15);
-        L.addFirst(10);
-        L.addFirst(5);
-        System.out.println(L.getFirst());
-        L.addLast(20);
-        System.out.println(L.size());;
+        SLList L = new SLList();
+        L.addLast(5);
     }
 }

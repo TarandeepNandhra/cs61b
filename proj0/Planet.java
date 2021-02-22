@@ -10,7 +10,6 @@ public class Planet {
     private static final double G = 6.67e-11;
 
     public Planet(double xP, double yP, double xV, double yV, double m, String imgs) {
-<<<<<<< HEAD
         this.xxPos = xP;
         this.yyPos = yP;
         this.xxVel = xV;
@@ -27,32 +26,11 @@ public class Planet {
         this.mass = p.mass;
         this.imgFileName = p.imgFileName;
     }
-    // will be invoked by a planet: samh.calcDistance(rocinante);
-    public double calcDistance(Planet p) {
-        double xdist = p.xxPos - this.xxPos;
-        double ydist = p.yyPos - this.yyPos;
-=======
-        xxPos = xP;
-        yyPos = yP;
-        xxVel = xV;
-        yyVel = yV;
-        mass = m;
-        imgFileName = imgs;
-    }
 
-    public Planet(Planet p) {
-        xxPos = p.xxPos;
-        yyPos = p.yyPos;
-        xxVel = p.xxVel;
-        yyVel = p.yyVel;
-        mass = p.mass;
-        imgFileName = p.imgFileName;
-    }
     // will be invoked by a planet: samh.calcDistance(rocinante);
     public double calcDistance(Planet p) {
         double xdist = this.xxPos - p.xxPos;
         double ydist = this.yyPos - p.yyPos;
->>>>>>> aa76a287c6dd2cf46ecf4bf659143ea64d02421c
         return Math.sqrt(xdist * xdist + ydist * ydist);
     }
 
@@ -72,11 +50,6 @@ public class Planet {
         double ydist = p.yyPos - this.yyPos;
         return this.calcForceExertedBy(p) * ydist / this.calcDistance(p);
     }
-
-    // Planet[] allPlanets = {samh, rocinante, aegir};
-    // samh.calcNetForceExertedByX(allPlanets);
-    // samh.calcNetForceExertedByY(allPlanets);
-
     // Need to avoid including the planet itself in calculations.
     public double calcNetForceExertedByX(Planet[] allPlanets) {
         double F = 0;
@@ -85,7 +58,6 @@ public class Planet {
                 F += this.calcForceExertedByX(p);
             }
         }
-
         return F;
     }
 
@@ -106,17 +78,9 @@ public class Planet {
         this.yyVel += dt * aY;
         this.xxPos += dt * this.xxVel;
         this.yyPos += dt * this.yyVel;
-
     }
 
     public void draw() {
-
         StdDraw.picture(this.xxPos, this.yyPos, "./images/" + this.imgFileName);
-<<<<<<< HEAD
-=======
-        StdDraw.show();
->>>>>>> aa76a287c6dd2cf46ecf4bf659143ea64d02421c
-
     }
-
 }
